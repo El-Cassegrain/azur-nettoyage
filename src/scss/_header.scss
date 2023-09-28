@@ -1,0 +1,63 @@
+/* Header styles */
+header#main-header {
+    position: fixed;
+    z-index: 101;
+    overflow: hidden;
+    display: flex;
+    justify-content: space-between;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: var(--header-height);
+
+    .logo-wrapper {
+        position: relative;
+        top: -45px;
+        left: -68px;
+        transform: translate(0);
+        transition: transform ease 1s 0.12s;
+        img {
+            width: 165px;
+            
+        }
+        &.move-out {
+            transform: translate(-110%, -110%);
+        }
+        &.move-in {
+            transform: translate(0, 0);
+        }
+    }
+
+    .contact-btn-wrapper {
+        position: absolute;
+        top: -105px;
+        right: -105px;
+        width: 207px;
+        height: 207px;
+        border-radius: 500px;
+        background-color: var(--primary);
+
+        a.main-contact-btn {
+            display: block;
+            border-radius: 500px;
+            width: 100%;
+            height: 100%;
+
+            i {
+                position: absolute;
+                left: 47px;
+                bottom: 42px;
+                color: var(--light);
+                font-size: 36px;
+                padding-top: 65px;
+            }
+        }
+    }
+}
+
+@media screen and (min-width: 1200px){
+    $header-height: 5rem;
+    header#main-header {
+        height: $header-height;
+    }
+}

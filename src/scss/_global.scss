@@ -1,0 +1,160 @@
+@import "variables";
+@import "mixins";
+
+/* Global styles */
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+*::selection, *::-moz-selection {
+    background-color: #b8eff6;
+    color: #2a2f30;
+}
+
+html{font-size: 16px; scroll-behavior: smooth;}
+@media screen and (min-width: 576px){html{font-size: 114%}}
+@media screen and (min-width: 768px){html{font-size: 128%}}
+@media screen and (min-width: 992px){html{font-size: 132%}}
+@media screen and (min-width: 1200px){html{font-size: 144%}}
+@media screen and (min-width: 1400px){html{font-size: 158%}}
+
+body {
+    background-color: var(--light);
+    font-family: "Raleway", sans-serif;
+    background: var(--light) url("../img/hero/bg-hero.svg") no-repeat bottom right;
+    color: var(--text-color);
+    background-attachment: fixed;
+    font-weight: 400;
+}
+
+.main-container {
+    margin: 0 clamp(7vw, 8vw, 300px);
+    max-width: 1180px;
+    display: block;
+}
+
+.btn {
+    @include btn;
+}
+
+.btn-primary {
+    @include btn-primary;
+    transition: background-color 0.25s 0.01s, color 0.45s 0.022s ease, border-radius 0.55s 0.12s ease-out;
+    &:hover, &:focus {
+        background-color: darken($primary, 4%);
+        color: darken($light, 4%);
+        border-radius: 0;
+        i {
+            transition: transform ease-in-out 0.26s 0.012s;
+            transform: translateY(2px);
+        }
+    }
+}
+
+.btn-outline-primary {
+    @include btn-outline-primary;
+    overflow: hidden;
+    transition: box-shadow ease-in-out 0.26s 0.012s, border-radius ease 0.65s, color 0.35s 0.012s ease-in;
+    &:hover, &:focus {
+        box-shadow: 0 0 8px rgba($primary, 0.45);
+        border-radius: 0;
+        color: var(--light);
+        i {
+            transition: transform 0.32s 0.016s ease, opacity 0.45s ease;
+            transform: translate(-18px, -20px) scale(3) rotate(-3deg);
+            opacity: 0.25;
+        }
+    }
+}
+
+@keyframes clignote {
+    to {
+        box-shadow: 0 0 11px rgba($primary, 0.35);
+        border: 1px solid rgba($primary , 0.45);
+    }
+}
+
+.btn-outline-secondary {
+    @include btn-outline-secondary;
+}
+
+#scroll-down-btn {
+    position: fixed;
+    z-index: 99;
+    width: auto;
+    bottom: 36px;
+    left: 50%;
+    transform: translateX(-50%);
+    will-change: transform;
+    mix-blend-mode:color-dodge;
+    animation: bounce cubic-bezier(.42,.36,.58,.92) 1.25s infinite alternate;
+    button {
+        padding: 30px 45px;
+        border-radius: 500px;
+        border: none;        
+        background-color: transparent;
+        cursor: pointer;
+        transition: all ease 0.25s 0.012s;
+        svg {
+            fill: var(--primary);
+        }
+        &:hover, &:focus {
+            background-color: var(--primary);
+            svg {
+                fill: var(--light)
+            }
+        }
+    }
+}
+
+@keyframes bounce {
+    to {
+        transform: translate(-50%, 10px);
+    }
+}
+
+#scroll-top-btn-wrapper {
+    position: fixed;
+    bottom: 32px;
+    right: 10px;
+    mix-blend-mode:color-dodge;
+    #scroll-top-btn {
+        background-color:  transparent;
+        width: 100%;
+        height: 100%;
+        border-radius: 120px;
+        transition: all ease 0.25s 0.012s;
+        border: 1px solid var(--primary);
+        i {
+            position: relative;
+            color: var(--primary);
+            font-size: 0.85rem;
+        }
+        
+        &:hover, &:focus {
+            cursor: pointer;
+            background-color: var(--primary);
+            i {
+                color: var(--light);
+            }
+        }
+    }
+    
+}
+
+@media screen and (min-width: 1200px){
+    #scroll-down-btn {
+        left: 90vw;
+        button {
+            border: 2px solid var(--primary);
+        }
+    }
+}
+
+@media screen and (min-width: 1400px){
+    .main-container {
+        margin: 0 auto;
+    }
+}

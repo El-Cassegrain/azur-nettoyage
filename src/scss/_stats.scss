@@ -1,0 +1,87 @@
+/* Stats section */
+#stats-section {
+    min-height: 100vh;
+    padding-top: $header-height;
+    margin-bottom: $header-height;
+    position: relative;
+
+    h2 {
+        font-size: clamp(2rem, 32px, 48px);
+        text-transform: uppercase;
+
+        &::before {
+            content: "En quelques chiffres";
+            text-transform: uppercase;
+            color: var(--secondary);
+            font-weight: 300;
+            font-size: 1rem;
+            display: block;
+            padding-bottom: 8px;
+        }
+    }
+
+    h3 {
+        display: block;
+        margin-top: 3rem;
+        color: var(--text-color);
+        font-size: 1.55rem;
+        text-align: center;
+
+        span {
+            font-size: 6rem;
+            display: inline-block;
+            color: var(--secondary);
+        }
+    }
+
+    p.stat-subtitle {
+        font-size: 1rem;
+        color: var(--primary);
+        text-align: center;
+    }
+}
+
+.container-counter {
+    display: flex;
+    flex-direction: column;
+}
+
+.card-counter {
+    width: 100%;
+}
+
+.cta-stats-wrapper {
+    margin-top: $header-height;
+    display: flex;
+    justify-content: center;
+}
+
+@media screen and (min-width: 768px) {
+    .container-counter {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 24px;
+    }
+
+    #stats-section .card-counter h3,
+    #stats-section p.stat-subtitle {
+        text-align: left;
+    }
+
+    #stats-section .card-counter {
+        margin-top: 20px;
+
+        h3 {
+            margin-top: 0;
+        }
+    }
+}
+
+@media screen and (min-width: 1200px) {
+    .container-counter {
+        margin-top: calc($header-height / 2);
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 25px;
+    }
+}

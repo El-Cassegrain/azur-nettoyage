@@ -1,0 +1,190 @@
+/* Steps section style */
+#steps-section {
+    min-height: 100vh;
+    position: relative;
+    z-index: 99;
+    background-color: darken($light, 2%);
+    padding-top: 3rem;
+    padding-bottom: calc($header-height / 2);
+    border-bottom-left-radius: 50% 20%;
+    border-bottom-right-radius: 50% 20%;
+}
+
+#steps-content {
+    position: relative;
+    margin-top: 3rem;
+    border-top: 1px solid transparent;
+}
+
+.step {
+    padding-top: 20px;
+    padding-left: 15px;
+    height: 200px;
+
+    h3 {
+        padding-bottom: 18px;
+    }
+
+    p {
+        line-height: 1.32rem;
+    }
+}
+
+#line-container {
+    position: absolute;
+    top: 3rem;
+    left: 0;
+    bottom: 6rem;
+    width: 4px;
+    background-color: var(--primary);
+
+    #steps-cursor {
+        width: 0;
+        height: 100px;
+        border-top-right-radius: 4px;
+        border-bottom-right-radius: 4px;
+        position: absolute;
+        left: 4px;
+        top: 0;
+        background-color: var(--primary);
+        transition: all ease 1s;
+
+        &::after {
+            content: "";
+            display: inline-block;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            height: 0;
+            width: 0;
+            border-top: 12px solid transparent;
+            border-bottom: 12px solid transparent;
+            border-left: 12px solid var(--primary);
+        }
+    }
+}
+
+#cta-steps-wrapper {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 5rem;
+
+    a {
+        box-shadow: 0 0 0 var(--primary);
+        animation: clignote ease-in-out 0.9s infinite alternate;
+        position: relative;
+        z-index: 0;
+
+        &::before {
+            content: "";
+            position: absolute;
+            z-index: -1;
+            clip-path: circle(0% at 00% 00%);
+            top: 0;
+            bottom: 0;
+            left: 0;
+            height: 100%;
+            width: 100%;
+            background-color: var(--primary);
+            transition: all 0.45s 0.025s ease-in-out;
+        }
+
+        &:hover,
+        &:focus {
+            color: $light;
+            animation: none;
+
+            &::before {
+                clip-path: circle(150% at 50% 00%);
+            }
+        }
+    }
+
+    small {
+        padding-top: 12px;
+        color: var(--primary);
+        font-style: italic;
+    }
+
+}
+
+
+@media screen and (min-width: 992px) {
+    #steps-section {
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        margin: 0 auto;
+
+        .main-container {
+            max-width: 700px;
+
+            #line-container {
+                top: 0;
+                bottom: 0;
+                left: -120px;
+                width: 1px;
+
+                #steps-cursor {
+                    height: 200px;
+                    left: 0;
+                    width: 5px;
+                }
+
+            }
+        }
+
+        #step-content {
+            max-width: 50vw;
+            margin: 0 auto;
+            position: relative;
+
+            .step {
+                position: relative;
+
+                &::before {
+                    content: "";
+                    width: 52px;
+                    height: 52px;
+                    background-color: transparent;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    line-height: 1rem;
+                    top: 18px;
+                    font-size: 1.35rem;
+                    position: absolute;
+                    left: -54px;
+                    border-radius: 120px;
+                    border: 1px solid var(--primary);
+                    color: var(--primary);
+                }
+
+                &#steps-step-one {
+                    &::before {
+                        content: "1";
+                    }
+                }
+
+                &#steps-step-two {
+                    &::before {
+                        content: "2";
+                    }
+                }
+
+                &#steps-step-three {
+                    &::before {
+                        content: "3";
+                    }
+                }
+
+                &#steps-step-four {
+                    &::before {
+                        content: "4";
+                    }
+                }
+            }
+        }
+    }
+}

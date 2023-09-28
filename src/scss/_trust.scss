@@ -1,0 +1,54 @@
+/* Trust section */
+#trust-section {
+    background-color: var(--text-color);
+    padding-top: $header-height;
+    padding-bottom: $header-height;
+    position: relative;
+    z-index: -1;
+    clip-path: polygon(0 6%, 100% 0, 100% 96%, 0% 100%);
+
+    h2 {
+        font-size: clamp(2rem, 32px, 48px);
+        color: var(--light);
+        text-transform: uppercase;
+
+        &::before {
+            content: "Nos prestigieux clients";
+            text-transform: uppercase;
+            color: var(--secondary);
+            font-weight: 300;
+            font-size: 1rem;
+            display: block;
+            padding-bottom: 8px;
+        }
+    }
+    .grid-trust {
+        display: inline-flex;
+        position: relative;
+        img {
+            object-fit: contain;
+            margin-right: 22px;
+        }
+    }
+}
+
+@media screen and (min-width: 576px) {
+    .grid-trust {
+        
+    }
+}
+@media screen and (min-width: 768px) {
+    .grid-trust {
+        
+    }
+}
+@media screen and (min-width: 992px) {
+    .grid-trust {
+        
+    }
+}
+@media screen and (min-width: 1200px) {
+    .grid-trust {
+        
+    }
+}

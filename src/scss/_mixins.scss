@@ -1,0 +1,62 @@
+/* Mixins */
+@mixin btn {
+    text-decoration: none;
+    text-transform: uppercase;
+    border-radius: 4px;
+    padding: 0.65rem 24px;
+    font-size: 1.125rem;
+    font-weight: 500;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+@mixin btn-primary {
+    @include btn;
+    background-color: var(--primary);
+    border: 1px solid var(--primary);
+    color: var(--light);
+    i {
+        padding-left: 12px;
+    }
+}
+
+@mixin btn-outline-primary {
+    @include btn;
+    border: 1px solid var(--primary);
+    color: var(--primary);
+    box-shadow: 0 0 0 var(--primary);
+        animation: clignote ease-in-out 0.9s infinite alternate;
+        position: relative;
+        z-index: 0;
+        &::before {
+            content: "";
+            position: absolute;
+            z-index: -1;
+            clip-path: circle(0% at 00% 00%);
+            top: 0;
+            bottom: 0;
+            left: 0;
+            height: 100%;
+            width: 100%;
+            background-color: var(--primary);
+            transition: all 0.45s 0.025s ease-in-out;
+        }
+        &:hover, &:focus {
+            color: $light;
+            animation: none;
+            &::before {
+                clip-path: circle(150% at 50% 00%);
+            }
+        }
+    i {
+        padding-right: 12px;
+    }
+}
+
+@mixin btn-outline-secondary {
+    @include btn;
+    background-color: transparent;
+    border: 1px solid var(--light);
+    color: var(--light);
+}
