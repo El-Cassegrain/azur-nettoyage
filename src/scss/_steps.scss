@@ -6,8 +6,6 @@
     background-color: darken($light, 2%);
     padding-top: 3rem;
     padding-bottom: calc($header-height / 2);
-    border-bottom-left-radius: 50% 20%;
-    border-bottom-right-radius: 50% 20%;
 }
 
 #steps-content {
@@ -116,6 +114,8 @@
         display: flex;
         justify-content: center;
         margin: 0 auto;
+        border-bottom-left-radius: 50% 20%;
+        border-bottom-right-radius: 50% 20%;
 
         .main-container {
             max-width: 700px;

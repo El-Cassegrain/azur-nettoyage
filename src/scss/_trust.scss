@@ -1,54 +1,68 @@
 /* Trust section */
 #trust-section {
-    background-color: var(--text-color);
-    padding-top: $header-height;
-    padding-bottom: $header-height;
+    margin-top: $header-height;
+    padding-top: calc($header-height / 2.5);
+    padding-bottom: calc($header-height / 2.5);
     position: relative;
     z-index: -1;
     clip-path: polygon(0 6%, 100% 0, 100% 96%, 0% 100%);
 
     h2 {
-        font-size: clamp(2rem, 32px, 48px);
-        color: var(--light);
+        font-size: 1rem;
+        color: var(--dark);
+        display: block;
+        margin: 0 auto;
+        justify-content: center;
+        max-width: 700px;
         text-transform: uppercase;
-
-        &::before {
-            content: "Nos prestigieux clients";
-            text-transform: uppercase;
-            color: var(--secondary);
-            font-weight: 300;
-            font-size: 1rem;
-            display: block;
-            padding-bottom: 8px;
-        }
+        text-align: center;
+        position: relative;
+        
     }
     .grid-trust {
-        display: inline-flex;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr 1fr;
+        max-width: 700px;
+        margin: 0 auto;
+        padding-top: 25px;
+        padding-bottom: 25px;
+        margin-top: 16px;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
         position: relative;
         img {
+            display: block;
             object-fit: contain;
+            margin: 0 auto;
             margin-right: 22px;
+            &:last-child {
+                margin-right: auto;
+            }
         }
     }
 }
 
-@media screen and (min-width: 576px) {
-    .grid-trust {
-        
-    }
-}
 @media screen and (min-width: 768px) {
     .grid-trust {
-        
-    }
-}
-@media screen and (min-width: 992px) {
-    .grid-trust {
-        
-    }
-}
-@media screen and (min-width: 1200px) {
-    .grid-trust {
-        
+        max-width: 700px;
+        margin: 0 auto;
+        height: 4rem;
+        padding-top: 25px;
+        padding-bottom: 25px;
+        margin-top: 16px;
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        img {
+            display: inline-block;
+            object-fit: contain;
+            margin: 0 auto;
+            margin-right: 22px;
+        }
     }
 }

@@ -1,3 +1,4 @@
+@charset "UTF-8";
 /* Variables */
 :root {
   --primary: #5252EE;
@@ -240,6 +241,11 @@ body {
   color: var(--light);
 }
 
+@media screen and (max-width: 767px) {
+  body {
+    background-size: 50%;
+  }
+}
 @media screen and (min-width: 1200px) {
   #scroll-down-btn {
     left: 90vw;
@@ -425,7 +431,7 @@ p.lead {
 section#services-section {
   background-color: var(--primary);
   position: relative;
-  z-index: -1;
+  z-index: 0;
   padding-top: 1px;
   padding-bottom: 8rem;
 }
@@ -541,8 +547,6 @@ p.subtitle-service {
   background-color: #f0f0ff;
   padding-top: 3rem;
   padding-bottom: 4rem;
-  border-bottom-left-radius: 50% 20%;
-  border-bottom-right-radius: 50% 20%;
 }
 
 #steps-content {
@@ -639,6 +643,8 @@ p.subtitle-service {
     display: flex;
     justify-content: center;
     margin: 0 auto;
+    border-bottom-left-radius: 50% 20%;
+    border-bottom-right-radius: 50% 20%;
   }
   #steps-section .main-container {
     max-width: 700px;
@@ -699,11 +705,12 @@ p.subtitle-service {
   margin-bottom: 8rem;
   position: relative;
 }
-#stats-section h2 {
+#stats-section h2:not(#trust-section h2) {
   font-size: clamp(2rem, 32px, 48px);
   text-transform: uppercase;
+  text-align: center;
 }
-#stats-section h2::before {
+#stats-section h2:not(#trust-section h2)::before {
   content: "En quelques chiffres";
   text-transform: uppercase;
   color: var(--secondary);
@@ -740,12 +747,14 @@ p.subtitle-service {
 }
 
 .cta-stats-wrapper {
-  margin-top: 8rem;
   display: flex;
   justify-content: center;
 }
 
 @media screen and (min-width: 768px) {
+  #stats-section h2:not(#trust-section h2) {
+    text-align: left !important;
+  }
   .container-counter {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -772,20 +781,78 @@ p.subtitle-service {
 }
 /* Trust section */
 #trust-section {
-  background-color: var(--text-color);
-  padding-top: 8rem;
-  padding-bottom: 8rem;
+  margin-top: 8rem;
+  padding-top: 3.2rem;
+  padding-bottom: 3.2rem;
   position: relative;
   z-index: -1;
   clip-path: polygon(0 6%, 100% 0, 100% 96%, 0% 100%);
 }
 #trust-section h2 {
-  font-size: clamp(2rem, 32px, 48px);
-  color: var(--light);
+  font-size: 1rem;
+  color: var(--dark);
+  display: block;
+  margin: 0 auto;
+  justify-content: center;
+  max-width: 700px;
   text-transform: uppercase;
+  text-align: center;
+  position: relative;
 }
-#trust-section h2::before {
-  content: "Nos prestigieux clients";
+#trust-section .grid-trust {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  max-width: 700px;
+  margin: 0 auto;
+  padding-top: 25px;
+  padding-bottom: 25px;
+  margin-top: 16px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+#trust-section .grid-trust img {
+  display: block;
+  object-fit: contain;
+  margin: 0 auto;
+  margin-right: 22px;
+}
+#trust-section .grid-trust img:last-child {
+  margin-right: auto;
+}
+
+@media screen and (min-width: 768px) {
+  .grid-trust {
+    max-width: 700px;
+    margin: 0 auto;
+    height: 4rem;
+    padding-top: 25px;
+    padding-bottom: 25px;
+    margin-top: 16px;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    align-items: center;
+    justify-content: center;
+    position: relative;
+  }
+  .grid-trust img {
+    display: inline-block;
+    object-fit: contain;
+    margin: 0 auto;
+    margin-right: 22px;
+  }
+}
+/* A propos styles */
+#a-propos-section h2 {
+  text-transform: uppercase;
+  font-size: clamp(2rem, 32px, 48px);
+  text-align: center;
+}
+#a-propos-section h2::before {
+  content: "À propos";
   text-transform: uppercase;
   color: var(--secondary);
   font-weight: 300;
@@ -793,13 +860,57 @@ p.subtitle-service {
   display: block;
   padding-bottom: 8px;
 }
-#trust-section .grid-trust {
+
+.quote-container {
+  margin-top: 3rem;
+}
+.quote-container header {
+  text-align: center;
+  padding-bottom: 24px;
+}
+.quote-container p {
+  line-height: 1.55rem;
+  padding: 12px 0;
+}
+.quote-container p::first-letter {
+  padding-left: 12px;
+}
+.quote-container p#first::first-letter {
+  font-size: 2.55rem;
+  font-weight: 500;
+  padding-left: 5px;
+}
+.quote-container footer {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  font-style: italic;
+  font-weight: 500;
+  padding-top: 20px;
+}
+.quote-container footer span:first-child {
   display: inline-flex;
+  padding-bottom: 8px;
+}
+.quote-container footer span:last-child {
+  display: inline-flex;
+  font-weight: 700;
   position: relative;
 }
-#trust-section .grid-trust img {
-  object-fit: contain;
-  margin-right: 22px;
+.quote-container footer span:last-child::before {
+  content: "";
+  width: 21px;
+  height: 1px;
+  position: absolute;
+  background-color: var(--text-color);
+  left: -30px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+/* Contact styles */
+#contact-section {
+  min-height: 50vh;
 }
 
 /* Main style */

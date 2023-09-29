@@ -1,0 +1,70 @@
+/* A propos styles */
+#a-propos-section {
+    h2 {
+        text-transform: uppercase;
+        font-size: clamp(2rem, 32px, 48px);
+        text-align: center;
+
+        &::before {
+            content: "À propos";
+            text-transform: uppercase;
+            color: var(--secondary);
+            font-weight: 300;
+            font-size: 1rem;
+            display: block;
+            padding-bottom: 8px;
+        }
+    }
+}
+
+.quote-container {
+    margin-top: 3rem;
+    header {
+        text-align: center;
+        padding-bottom: 24px;
+    }
+
+    p {
+        line-height: 1.55rem;
+        padding: 12px 0;
+        &::first-letter {
+            padding-left: 12px;
+        }
+
+        &#first {
+            &::first-letter {
+                font-size: 2.55rem;
+                font-weight: 500;
+                padding-left: 5px;
+            }
+        }
+
+    }
+    footer {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        font-style: italic;
+        font-weight: 500;
+        padding-top: 20px;
+        span:first-child {
+            display: inline-flex;
+            padding-bottom: 8px;
+        }
+        span:last-child {
+            display: inline-flex;
+            font-weight: 700;
+            position: relative;
+            &::before {
+                content: "";
+                width: 21px;
+                height: 1px;
+                position: absolute;
+                background-color: var(--text-color);
+                left: -30px;
+                top: 50%;
+                transform: translateY(-50%);
+            }
+        }
+    }
+}

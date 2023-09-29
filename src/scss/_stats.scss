@@ -5,9 +5,10 @@
     margin-bottom: $header-height;
     position: relative;
 
-    h2 {
+    h2:not(#trust-section h2) {
         font-size: clamp(2rem, 32px, 48px);
         text-transform: uppercase;
+        text-align: center;
 
         &::before {
             content: "En quelques chiffres";
@@ -51,12 +52,14 @@
 }
 
 .cta-stats-wrapper {
-    margin-top: $header-height;
     display: flex;
     justify-content: center;
 }
 
 @media screen and (min-width: 768px) {
+    #stats-section h2:not(#trust-section h2) {
+        text-align: left !important;
+    }
     .container-counter {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
