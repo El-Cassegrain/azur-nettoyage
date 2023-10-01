@@ -130,6 +130,7 @@ body.dark-mode {
 
 #scroll-top-btn-wrapper {
     position: fixed;
+    z-index: 10;
     bottom: 32px;
     right: 10px;
     mix-blend-mode:color-dodge;

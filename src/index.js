@@ -33,15 +33,16 @@ toggleFavicon();
         states: {
             "default-state": {
                 gradients: [
-                    ['#141819', '#141819'],
+                    ['#141819', '#5252EE'],
                     ['#141819', '#66E3F6'],
                     ['#66E3F6', '#141819']
                 ],
-                transitionSpeed: 4000,
+                transitionSpeed: 5500,
                 loop: true
             }
         }
     });
+    
 
     const typed = new Typed('#wordThatChange', {
         strings: ['entreprise', 'logement', 'usine', 'restaurant', 'boutique'],
@@ -144,7 +145,10 @@ toggleFavicon();
 
         });
 
-
+        //scroll to top
+        scrollTopButton.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behaviour: 'smooth'});
+        })
 
         // Indicateur de progression des étapes
         const indicator = document.getElementById('steps-cursor');
@@ -224,13 +228,25 @@ toggleFavicon();
 
     gsap.to("#trust-section", {
         opacity: 1,
-        y: 0,
+        y: -55,
         duration: 1,
         scrollTrigger: {
             trigger: "#trust-section",
             start: "top center", // Démarrer l'animation lorsque le haut de la section atteint le centre de la fenêtre
             end: "bottom center", // Arrêter l'animation lorsque le bas de la section atteint le centre de la fenêtre
-            scrub: true, // Pour une animation en douceur lors du défilement
+            scrub: false, // Pour une animation en douceur lors du défilement
+        },
+    });
+    gsap.to(".cta-stats-wrapper", {
+        opacity: 1,
+        y: -20,
+        duration: 1,
+        delay: 0.35,
+        scrollTrigger: {
+            trigger: "#trust-section",
+            start: "top center", // Démarrer l'animation lorsque le haut de la section atteint le centre de la fenêtre
+            end: "bottom center", // Arrêter l'animation lorsque le bas de la section atteint le centre de la fenêtre
+            scrub: false, // Pour une animation en douceur lors du défilement
         },
     });
 
