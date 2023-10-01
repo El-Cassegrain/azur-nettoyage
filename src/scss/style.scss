@@ -20,3 +20,31 @@ body.light-mode {
         }
     }
 }
+
+/* Styles pour le mode lumière (clair) */
+@media (prefers-color-scheme: light) {
+    body {
+        --text-color: #292A2B;
+        --primary: #5252EE;
+        --secondary: #00C5D9;
+        $primary: #5252EE;
+        $secondary: #00C5D9;
+        background-color: var(--light);
+        .btn-primary {
+            color: var(--light);
+            &:hover, &:focus {
+                background-color: darken($primary, 4%);
+            }
+        }
+        .btn-outline-primary {
+            animation: clignoteLight ease-in-out 0.9s infinite alternate;
+            &:hover, &:focus {
+                color: var(--light);
+            }
+        
+        }
+        header#main-header a.main-contact-btn i {
+            color: var(--light) !important;
+        }
+    }
+}

@@ -11,17 +11,29 @@ const switchThemeBtn = document.querySelector('.theme-switch')
 const switchThemeItem = document.querySelector('.switch')
 const myBody = document.querySelector('body')
 
-switchThemeBtn.addEventListener('click', () => {
-    switchThemeItem.classList.toggle('switched');
-    switchThemeBtn.classList.toggle('switched')
+function toggleColorMode() {
     if (myBody.classList.contains('light-mode')) {
         myBody.classList.remove('light-mode');
         myBody.classList.add('dark-mode');
+        switchThemeItem.classList.add('switched')
     } else {
         myBody.classList.remove('dark-mode');
         myBody.classList.add('light-mode');
+        switchThemeItem.classList.remove('switched')
     }
-})
+}
+
+switchThemeBtn.addEventListener('click', toggleColorMode);
+
+// Vérifier le mode de couleur actuel lors du chargement de la page
+if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+    // Le navigateur est en mode sombre, initialisez votre page en mode sombre
+    myBody.classList.add('dark-mode');
+} else {
+    // Le navigateur est en mode lumière, initialisez votre page en mode lumière
+    myBody.classList.add('light-mode');
+}
+
 
 const myHeader = document.querySelector('#main-header');
 var options = {

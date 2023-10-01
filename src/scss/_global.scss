@@ -47,10 +47,11 @@ body.light-mode {
         }
     }
     .btn-outline-primary {
+        animation: clignoteLight ease-in-out 0.9s infinite alternate;
         &:hover, &:focus {
             color: var(--light);
         }
-    
+            
     }
 }
 
@@ -98,12 +99,6 @@ body.dark-mode {
             transform: translate(-18px, -20px) scale(3) rotate(-3deg);
             opacity: 0.25;
         }
-    }
-}
-
-body.light-mode {
-    .btn-outline-primary {
-        animation: clignoteLight ease-in-out 0.9s infinite alternate;
     }
 }
 

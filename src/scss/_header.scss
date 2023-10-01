@@ -82,11 +82,11 @@ header#main-header {
         background-color: var(--primary);
         transition: all ease-in-out 0.18s;
         &.switched {
-            transform: translate(28px, -50%);
+            transform: translate(28px, -50%) !important;
         }
     }
     &.switched {
-        background-color: darken($light, 8%);
+        background-color: darken($light, 8%) !important;
     }
 }
 

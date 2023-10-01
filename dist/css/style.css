@@ -83,6 +83,9 @@ body.light-mode .btn-primary {
 body.light-mode .btn-primary:hover, body.light-mode .btn-primary:focus {
   background-color: #3f3fec;
 }
+body.light-mode .btn-outline-primary {
+  animation: clignoteLight ease-in-out 0.9s infinite alternate;
+}
 body.light-mode .btn-outline-primary:hover, body.light-mode .btn-outline-primary:focus {
   color: var(--light);
 }
@@ -191,10 +194,6 @@ body.dark-mode {
   transition: transform 0.32s 0.016s ease, opacity 0.45s ease;
   transform: translate(-18px, -20px) scale(3) rotate(-3deg);
   opacity: 0.25;
-}
-
-body.light-mode .btn-outline-primary {
-  animation: clignoteLight ease-in-out 0.9s infinite alternate;
 }
 
 @keyframes clignoteLight {
@@ -380,10 +379,10 @@ header#main-header .contact-btn-wrapper a.main-contact-btn#tel-btn {
   transition: all ease-in-out 0.18s;
 }
 .theme-switch .switch.switched {
-  transform: translate(28px, -50%);
+  transform: translate(28px, -50%) !important;
 }
 .theme-switch.switched {
-  background-color: #d1d1ff;
+  background-color: #d1d1ff !important;
 }
 
 .headroom--unpinned {
@@ -1080,6 +1079,31 @@ body.light-mode #steps-section {
 }
 body.light-mode #trust-section h2 {
   color: var(--dark);
+}
+
+/* Styles pour le mode lumière (clair) */
+@media (prefers-color-scheme: light) {
+  body {
+    --text-color: #292A2B;
+    --primary: #5252EE;
+    --secondary: #00C5D9;
+    background-color: var(--light);
+  }
+  body .btn-primary {
+    color: var(--light);
+  }
+  body .btn-primary:hover, body .btn-primary:focus {
+    background-color: #3f3fec;
+  }
+  body .btn-outline-primary {
+    animation: clignoteLight ease-in-out 0.9s infinite alternate;
+  }
+  body .btn-outline-primary:hover, body .btn-outline-primary:focus {
+    color: var(--light);
+  }
+  body header#main-header a.main-contact-btn i {
+    color: var(--light) !important;
+  }
 }
 
 /*# sourceMappingURL=style.css.map */
