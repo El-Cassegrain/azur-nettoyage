@@ -16,10 +16,12 @@ function toggleColorMode() {
         myBody.classList.remove('light-mode');
         myBody.classList.add('dark-mode');
         switchThemeItem.classList.add('switched')
+        switchThemeBtn.classList.add('switched')
     } else {
         myBody.classList.remove('dark-mode');
         myBody.classList.add('light-mode');
         switchThemeItem.classList.remove('switched')
+        switchThemeBtn.classList.remove('switched')
     }
 }
 

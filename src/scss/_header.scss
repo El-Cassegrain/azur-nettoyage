@@ -127,3 +127,9 @@ body.light-mode {
         color: var(--light);
     }
 }
+
+@media (prefers-color-scheme: light) {
+    .theme-switch {
+        background-color: darken($light, 4%);
+    }
+}

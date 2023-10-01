@@ -417,6 +417,11 @@ body.light-mode header#main-header a.main-contact-btn i {
   color: var(--light);
 }
 
+@media (prefers-color-scheme: light) {
+  .theme-switch {
+    background-color: #e6e6ff;
+  }
+}
 /* Hero section styles */
 #hero-section {
   min-height: calc(100vh - 8rem);
