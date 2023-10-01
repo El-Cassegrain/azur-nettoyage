@@ -5,11 +5,13 @@
     padding-bottom: calc($header-height / 2.5);
     position: relative;
     z-index: -1;
+    opacity: 0;
+    transform: translateY(20px);
     clip-path: polygon(0 6%, 100% 0, 100% 96%, 0% 100%);
 
     h2 {
         font-size: 1rem;
-        color: var(--dark);
+        color: var(--light);
         display: block;
         margin: 0 auto;
         justify-content: center;

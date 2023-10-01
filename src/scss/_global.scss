@@ -21,12 +21,25 @@ html{font-size: 16px; scroll-behavior: smooth;}
 @media screen and (min-width: 1400px){html{font-size: 158%}}
 
 body {
-    background-color: var(--light);
     font-family: "Raleway", sans-serif;
-    background: var(--light) url("../img/hero/bg-hero.svg") no-repeat bottom right;
+    background: var(--dark) url("../img/hero/bg-hero.svg") no-repeat bottom right;
     color: var(--text-color);
     background-attachment: fixed;
     font-weight: 400;
+}
+
+body.light-mode {
+    --text-color: #292A2B;
+    --primary: #5252EE;
+    --secondary: #00C5D9;
+    background-color: var(--light);
+}
+
+body.dark-mode {
+    --primary: #00C5D9;
+    --secondary: #5252EE;
+    --text-color: #FAFAFF;
+    background-color: var(--dark);
 }
 
 .main-container {
@@ -44,7 +57,7 @@ body {
     transition: background-color 0.25s 0.01s, color 0.45s 0.022s ease, border-radius 0.55s 0.12s ease-out;
     &:hover, &:focus {
         background-color: darken($primary, 4%);
-        color: darken($light, 4%);
+        color: darken($dark, 4%);
         border-radius: 0;
         i {
             transition: transform ease-in-out 0.26s 0.012s;
@@ -60,7 +73,7 @@ body {
     &:hover, &:focus {
         box-shadow: 0 0 8px rgba($primary, 0.45);
         border-radius: 0;
-        color: var(--light);
+        color: var(--dark);
         i {
             transition: transform 0.32s 0.016s ease, opacity 0.45s ease;
             transform: translate(-18px, -20px) scale(3) rotate(-3deg);
@@ -127,6 +140,7 @@ body {
         border-radius: 120px;
         transition: all ease 0.25s 0.012s;
         border: 1px solid var(--primary);
+        display: none;
         i {
             position: relative;
             color: var(--primary);

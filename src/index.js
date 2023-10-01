@@ -33,9 +33,9 @@ toggleFavicon();
         states: {
             "default-state": {
                 gradients: [
-                    ['#5252EE', '#00C5D9'],
-                    ['#00C5D9', '#5252EE'],
-                    ['#5252EE', '#00C5D9']
+                    ['#141819', '#141819'],
+                    ['#141819', '#66E3F6'],
+                    ['#66E3F6', '#141819']
                 ],
                 transitionSpeed: 4000,
                 loop: true
@@ -74,7 +74,7 @@ toggleFavicon();
             serviceAnimation.from(section, { opacity: 0, y: 130 });
 
             if (!isSmallScreen) {
-                const serviceAnimation = gsap.timeline({
+                const serviceAnimation2 = gsap.timeline({
                     scrollTrigger: {
                         trigger: section,
                         start: "top 40%",
@@ -84,7 +84,7 @@ toggleFavicon();
                 });
 
                 // Déplacez le background vers le bas
-                serviceAnimation.fromTo(
+                serviceAnimation2.fromTo(
                     dynamicBgServices,
                     { backgroundPositionY: "-100%" },
                     { backgroundPositionY: "90%", duration: 0.75 }
@@ -221,6 +221,18 @@ toggleFavicon();
             });
         }
     };
+
+    gsap.to("#trust-section", {
+        opacity: 1,
+        y: 0,
+        duration: 1,
+        scrollTrigger: {
+            trigger: "#trust-section",
+            start: "top center", // Démarrer l'animation lorsque le haut de la section atteint le centre de la fenêtre
+            end: "bottom center", // Arrêter l'animation lorsque le bas de la section atteint le centre de la fenêtre
+            scrub: true, // Pour une animation en douceur lors du défilement
+        },
+    });
 
     // Appeler la fonction d'initialisation GSAP
     initGSAP();
