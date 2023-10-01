@@ -362,8 +362,8 @@ header#main-header .contact-btn-wrapper a.main-contact-btn#tel-btn {
   background-color: #020202;
   border-radius: 100px;
   position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
+  right: 50%;
+  transform: translateX(50%);
   top: 10px;
   height: 22px;
   cursor: pointer;
@@ -396,6 +396,11 @@ header#main-header .contact-btn-wrapper a.main-contact-btn#tel-btn {
   transform: translateY(0);
 }
 
+@media screen and (min-width: 576px) {
+  .theme-switch {
+    right: 160px;
+  }
+}
 @media screen and (min-width: 768px) {
   header#main-header #tel-btn {
     display: none !important;
@@ -1045,67 +1050,27 @@ p.subtitle-service {
   }
 }
 /* Contact styles */
-#contact-section {
+#contact-infos {
   margin-top: 65px;
-  position: relative;
-  z-index: 100;
-  padding-bottom: 120px;
-  display: flex;
-  justify-content: center;
-}
-#contact-section #contact-infos {
-  margin-top: 65px;
-  display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
-}
-#contact-section #contact-infos .contact-item {
+  margin-bottom: 120px;
   display: flex;
   flex-direction: column;
 }
-#contact-section #contact-infos .contact-item:nth-child(1) {
-  display: inline-flex;
-  align-items: flex-start;
-  justify-content: center;
-}
-
-#tel-btn-contact {
+#contact-infos a:last-child {
   margin-top: 22px;
 }
-#tel-btn-contact i {
+#contact-infos a:last-child i {
   padding-right: 12px;
 }
 
 @media screen and (min-width: 768px) {
-  #contact-section {
-    max-width: 700px;
-    justify-content: end;
-  }
-  #contact-section .container-contact {
-    width: 100%;
-  }
-  #contact-section .container-contact #contact-infos {
-    width: 100%;
+  #contact-infos {
     flex-direction: row;
-    align-items: center;
     justify-content: space-between;
-  }
-  #contact-section .container-contact #contact-infos #tel-btn-contact {
-    margin-top: 0;
-  }
-}
-@media screen and (min-width: 992px) {
-  #contact-section {
-    max-width: 700px;
-    justify-content: flex-end;
-  }
-  #contact-section .container-contact #contact-infos {
-    flex-direction: row;
-  }
-}
-@media screen and (min-width: 1200px) {
-  #contact-section {
     max-width: 800px;
+  }
+  #contact-infos a:last-child {
+    margin-top: 0;
   }
 }
 /* Footer styles */

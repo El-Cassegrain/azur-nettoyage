@@ -66,8 +66,8 @@ header#main-header {
     background-color: darken($dark, 8%);
     border-radius: 100px;
     position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
+    right: 50%;
+    transform: translateX(50%);
     top: 10px;
     height: 22px;
     cursor: pointer;
@@ -98,6 +98,12 @@ header#main-header {
 .headroom--pinned {
     transition: transform ease 0.45s 0.25s;
     transform: translateY(0);
+}
+
+@media screen and (min-width: 576px){
+    .theme-switch {
+        right: 160px;
+    }
 }
 
 @media screen and (min-width: 768px){

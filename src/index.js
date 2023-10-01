@@ -9,7 +9,7 @@ import Headroom from 'headroom.js';
 /* Switch theme */
 const switchThemeBtn = document.querySelector('.theme-switch')
 const switchThemeItem = document.querySelector('.switch')
-const myBody = document.querySelector('body') 
+const myBody = document.querySelector('body')
 
 switchThemeBtn.addEventListener('click', () => {
     switchThemeItem.classList.toggle('switched');
@@ -26,54 +26,54 @@ switchThemeBtn.addEventListener('click', () => {
 const myHeader = document.querySelector('#main-header');
 var options = {
     // vertical offset in px before element is first unpinned
-    offset : 0,
+    offset: 0,
     // or you can specify offset individually for up/down scroll
     offset: {
         up: 100,
         down: 50
     },
     // scroll tolerance in px before state changes
-    tolerance : 0,
+    tolerance: 0,
     // or you can specify tolerance individually for up/down scroll
-    tolerance : {
-        up : 5,
-        down : 0
+    tolerance: {
+        up: 5,
+        down: 0
     },
     // css classes to apply
-    classes : {
+    classes: {
         // when element is initialised
-        initial : "headroom",
+        initial: "headroom",
         // when scrolling up
-        pinned : "headroom--pinned",
+        pinned: "headroom--pinned",
         // when scrolling down
-        unpinned : "headroom--unpinned",
+        unpinned: "headroom--unpinned",
         // when above offset
-        top : "headroom--top",
+        top: "headroom--top",
         // when below offset
-        notTop : "headroom--not-top",
+        notTop: "headroom--not-top",
         // when at bottom of scroll area
-        bottom : "headroom--bottom",
+        bottom: "headroom--bottom",
         // when not at bottom of scroll area
-        notBottom : "headroom--not-bottom",
+        notBottom: "headroom--not-bottom",
         // when frozen method has been called
         frozen: "headroom--frozen",
         // multiple classes are also supported with a space-separated list
         pinned: "headroom--pinned foo bar"
     },
     // element to listen to scroll events on, defaults to `window`
-    scroller : window,
+    scroller: window,
     // callback when pinned, `this` is headroom object
-    onPin : function() {},
+    onPin: function () { },
     // callback when unpinned, `this` is headroom object
-    onUnpin : function() {},
+    onUnpin: function () { },
     // callback when above offset, `this` is headroom object
-    onTop : function() {},
+    onTop: function () { },
     // callback when below offset, `this` is headroom object
-    onNotTop : function() {},
+    onNotTop: function () { },
     // callback when at bottom of page, `this` is headroom object
-    onBottom : function() {},
+    onBottom: function () { },
     // callback when moving away from bottom of page, `this` is headroom object
-    onNotBottom : function() {}
+    onNotBottom: function () { }
 };
 // pass options as the second argument to the constructor
 // supplied options are merged with defaults
@@ -120,7 +120,7 @@ toggleFavicon();
             }
         }
     });
-    
+
 
     const typed = new Typed('#wordThatChange', {
         strings: ['entreprise', 'logement', 'usine', 'restaurant', 'boutique'],
@@ -200,10 +200,16 @@ toggleFavicon();
 
         // Scroll top button
         const scrollTopButton = document.getElementById("scroll-top-btn");
+
         const handleScrollTopButton = () => {
             const pageHeight = document.documentElement.scrollHeight;
             const windowHeight = window.innerHeight;
             const scrollY = window.scrollY;
+
+            //scroll to top
+            scrollTopButton.addEventListener('click', () => {
+                window.scrollTo({ top: 0, behaviour: 'smooth' });
+            })
 
             if (scrollY + windowHeight >= pageHeight - 200) {
                 scrollTopButton.style.display = "block";
@@ -225,10 +231,7 @@ toggleFavicon();
 
         });
 
-        //scroll to top
-        scrollTopButton.addEventListener('click', () => {
-            window.scrollTo({ top: 0, behaviour: 'smooth'});
-        })
+
 
         // Indicateur de progression des étapes
         const indicator = document.getElementById('steps-cursor');
@@ -237,15 +240,17 @@ toggleFavicon();
         steps.forEach((step, index) => {
             const animation = gsap.to(indicator, {
                 top: `${index * 200}px`,
-                paused: true,
-                ease: "power1.inOut",
+                paused: true,                
             });
 
             ScrollTrigger.create({
                 trigger: step,
                 start: "75% 75%",
                 end: "50 center",
-                animation: animation
+                animation: animation,
+                onEnter: () => {
+                    dynamicBgServices.style.display = 'none';
+                }
             });
         });
 
