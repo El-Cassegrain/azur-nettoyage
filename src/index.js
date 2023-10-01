@@ -231,6 +231,7 @@ toggleFavicon();
                 myBody.classList.add('bg-move');
             } else if (scrollY > 200 && isSmallScreen) {
                 scrollDownButton.style.display = "none";
+                dynamicBgServices.style.display = "none";
             } else {
                 scrollTopButton.style.display = "none";
                 scrollDownButton.style.display = "block";
@@ -260,10 +261,7 @@ toggleFavicon();
                 trigger: step,
                 start: "75% 75%",
                 end: "50 center",
-                animation: animation,
-                onEnter: () => {
-                    dynamicBgServices.style.display = 'none';
-                }
+                animation: animation
             });
         });
 
