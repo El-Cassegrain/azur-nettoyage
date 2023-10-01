@@ -26,13 +26,32 @@ body {
     color: var(--text-color);
     background-attachment: fixed;
     font-weight: 400;
+    transition: all ease-in 0.25s 0.012s, background-position ease 0.35s 0.065s;
+}
+
+body.bg-move {
+    background-position: center right;
 }
 
 body.light-mode {
     --text-color: #292A2B;
     --primary: #5252EE;
     --secondary: #00C5D9;
+    $primary: #5252EE;
+    $secondary: #00C5D9;
     background-color: var(--light);
+    .btn-primary {
+        color: var(--light);
+        &:hover, &:focus {
+            background-color: darken($primary, 4%);
+        }
+    }
+    .btn-outline-primary {
+        &:hover, &:focus {
+            color: var(--light);
+        }
+    
+    }
 }
 
 body.dark-mode {
@@ -82,8 +101,15 @@ body.dark-mode {
     }
 }
 
-@keyframes clignote {
+body.light-mode {
+    .btn-outline-primary {
+        animation: clignoteLight ease-in-out 0.9s infinite alternate;
+    }
+}
+
+@keyframes clignoteLight {
     to {
+        $primary: #5252EE;
         box-shadow: 0 0 11px rgba($primary, 0.35);
         border: 1px solid rgba($primary , 0.45);
     }

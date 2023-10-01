@@ -38,7 +38,7 @@ header#main-header {
         background-color: var(--primary);
 
         a.main-contact-btn {
-            display: block;
+            display: none;
             border-radius: 500px;
             width: 100%;
             height: 100%;
@@ -51,7 +51,61 @@ header#main-header {
                 font-size: 32px;
                 padding-top: 65px;
             }
+            &#mail-btn {
+                display: none;
+            }
+            &#tel-btn {
+                display: block;
+            }
         }
+    }
+}
+
+.theme-switch {
+    width: 50px;
+    background-color: darken($dark, 8%);
+    border-radius: 100px;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 10px;
+    height: 22px;
+    cursor: pointer;
+    .switch {
+        position: absolute;
+        border-radius: 100px;
+        top: 50%;
+        left: 1px;
+        transform: translate(0, -50%);
+        width: 20px;
+        height: 20px;
+        background-color: var(--primary);
+        transition: all ease-in-out 0.18s;
+        &.switched {
+            transform: translate(28px, -50%);
+        }
+    }
+    &.switched {
+        background-color: darken($light, 8%);
+    }
+}
+
+.headroom--unpinned {
+    transition: transform ease 0.25s 0.15s;
+    transform: translateY(-110%);
+}
+
+.headroom--pinned {
+    transition: transform ease 0.45s 0.25s;
+    transform: translateY(0);
+}
+
+@media screen and (min-width: 768px){
+    header#main-header #tel-btn {
+        display: none !important;
+    }
+    header#main-header #mail-btn {
+        display: block !important;
     }
 }
 
@@ -59,5 +113,11 @@ header#main-header {
     $header-height: 5rem;
     header#main-header {
         height: $header-height;
+    }
+}
+
+body.light-mode {
+    header#main-header a.main-contact-btn i {
+        color: var(--light);
     }
 }

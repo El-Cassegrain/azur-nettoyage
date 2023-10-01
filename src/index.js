@@ -3,6 +3,84 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import Granim from 'granim';
 import { CountUp } from 'countup.js/dist/countUp.min';
 import Typed from 'typed.js';
+import Headroom from 'headroom.js';
+
+
+/* Switch theme */
+const switchThemeBtn = document.querySelector('.theme-switch')
+const switchThemeItem = document.querySelector('.switch')
+const myBody = document.querySelector('body') 
+
+switchThemeBtn.addEventListener('click', () => {
+    switchThemeItem.classList.toggle('switched');
+    switchThemeBtn.classList.toggle('switched')
+    if (myBody.classList.contains('light-mode')) {
+        myBody.classList.remove('light-mode');
+        myBody.classList.add('dark-mode');
+    } else {
+        myBody.classList.remove('dark-mode');
+        myBody.classList.add('light-mode');
+    }
+})
+
+const myHeader = document.querySelector('#main-header');
+var options = {
+    // vertical offset in px before element is first unpinned
+    offset : 0,
+    // or you can specify offset individually for up/down scroll
+    offset: {
+        up: 100,
+        down: 50
+    },
+    // scroll tolerance in px before state changes
+    tolerance : 0,
+    // or you can specify tolerance individually for up/down scroll
+    tolerance : {
+        up : 5,
+        down : 0
+    },
+    // css classes to apply
+    classes : {
+        // when element is initialised
+        initial : "headroom",
+        // when scrolling up
+        pinned : "headroom--pinned",
+        // when scrolling down
+        unpinned : "headroom--unpinned",
+        // when above offset
+        top : "headroom--top",
+        // when below offset
+        notTop : "headroom--not-top",
+        // when at bottom of scroll area
+        bottom : "headroom--bottom",
+        // when not at bottom of scroll area
+        notBottom : "headroom--not-bottom",
+        // when frozen method has been called
+        frozen: "headroom--frozen",
+        // multiple classes are also supported with a space-separated list
+        pinned: "headroom--pinned foo bar"
+    },
+    // element to listen to scroll events on, defaults to `window`
+    scroller : window,
+    // callback when pinned, `this` is headroom object
+    onPin : function() {},
+    // callback when unpinned, `this` is headroom object
+    onUnpin : function() {},
+    // callback when above offset, `this` is headroom object
+    onTop : function() {},
+    // callback when below offset, `this` is headroom object
+    onNotTop : function() {},
+    // callback when at bottom of page, `this` is headroom object
+    onBottom : function() {},
+    // callback when moving away from bottom of page, `this` is headroom object
+    onNotBottom : function() {}
+};
+// pass options as the second argument to the constructor
+// supplied options are merged with defaults
+var headroom = new Headroom(myHeader, options);
+
+
+headroom.init();
 
 // Utilisez ensuite ces bibliothèques dans votre script
 gsap.registerPlugin(ScrollTrigger);
@@ -33,9 +111,9 @@ toggleFavicon();
         states: {
             "default-state": {
                 gradients: [
-                    ['#141819', '#5252EE'],
-                    ['#141819', '#66E3F6'],
-                    ['#66E3F6', '#141819']
+                    ['#66E3F6', '#5252EE'],
+                    ['#5252EE', '#66E3F6'],
+                    ['#66E3F6', '#5252EE']
                 ],
                 transitionSpeed: 5500,
                 loop: true
@@ -130,12 +208,14 @@ toggleFavicon();
             if (scrollY + windowHeight >= pageHeight - 200) {
                 scrollTopButton.style.display = "block";
                 scrollDownButton.style.display = "none";
+                myBody.classList.add('bg-move');
             } else if (scrollY > 200 && isSmallScreen) {
                 scrollDownButton.style.display = "none";
                 dynamicBgServices.style.display = "none";
             } else {
                 scrollTopButton.style.display = "none";
                 scrollDownButton.style.display = "block";
+                myBody.classList.remove('bg-move');
             }
         };
 
@@ -232,7 +312,7 @@ toggleFavicon();
         duration: 1,
         scrollTrigger: {
             trigger: "#trust-section",
-            start: "top center", // Démarrer l'animation lorsque le haut de la section atteint le centre de la fenêtre
+            start: "-70px center", // Démarrer l'animation lorsque le haut de la section atteint le centre de la fenêtre
             end: "bottom center", // Arrêter l'animation lorsque le bas de la section atteint le centre de la fenêtre
             scrub: false, // Pour une animation en douceur lors du défilement
         },

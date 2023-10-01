@@ -105,3 +105,9 @@
         }
     }
 }
+
+@media screen and (min-width: 1200px) {
+   #a-propos-section .quote-container {
+        max-width: 800px;
+    }
+}

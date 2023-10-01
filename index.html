@@ -30,8 +30,12 @@
         <div class="logo-wrapper">
             <img src="dist/img/logo-azur-nettoyage-icon.svg" alt="Logo Azur Nettoyage à Limoges">
         </div>
+        <div class="theme-switch">
+            <div class="switch"></div>
+          </div>
         <div class="contact-btn-wrapper">
-            <a href="#!" class="main-contact-btn"><i class="bi bi-send-fill"></i></a>
+            <a href="#!" class="main-contact-btn" id="tel-btn"><i class="bi bi-telephone-fill"></i></a>
+            <a href="#!" class="main-contact-btn" id="mail-btn"><i class="bi bi-send-fill"></i></a>
         </div>
     </header>
 
@@ -436,25 +440,14 @@
 
         <!-- Contact section -->
         <section id="contact-section">
-            <div class="main-container container-two-cols">
+            <div class="main-container">
 
                 <!-- Contact infos -->
                 <div id="contact-infos">
-                    <div class="contact-item">
-                        <i class="bi bi-geo-alt-fill"></i>
-                        <p>AZUR NETTOYAGE <br>
-                            10, rue des Mouettes <br> 87000 Limoges
-                        </p>
-                    </div>
-
-                    <div class="contact-item">
-                        <i class="bi bi-telephone-fill"></i>
-                        <p><a href="tel:+330632301309" class="font-content">06 32 30 13 09</a></p>
-                    </div>
-
-                    <a href="#!" class="mt-2 btn btn-outline-secondary"><i class="bi bi-envelope pe-2"></i>Je contacte
+                        <a href="#!" class="mt-2 btn btn-outline-primary"><i class="bi bi-envelope pe-2"></i>Je contacte
                         par
                         mail</a>
+                        <a href="tel:+330632301309" id="tel-btn-contact" class="btn btn-primary"><i class="bi bi-telephone-fill"></i>06 32 30 13 09</a>
                 </div>
 
             </div>
@@ -478,9 +471,7 @@
     </div>
 
     <footer id="main-footer">
-        <div id="switch-theme-btn">
-            <button type="button" id="switch-btn"><i class="bi bi-lightbulb-off"></i></button>
-        </div>
+        
     </footer>
 
     <!-- Main script -->

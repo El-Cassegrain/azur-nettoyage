@@ -1,4 +1,69 @@
 /* Contact styles */
 #contact-section {
-    min-height: 50vh;
+    margin-top: 65px;
+    position: relative;
+    z-index: 100;
+    padding-bottom: 120px;
+    display: flex;
+    justify-content: center;
+    #contact-infos {
+        margin-top: 65px;
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        .contact-item {
+            display: flex;
+            flex-direction: column;
+            &:nth-child(1){
+                display: inline-flex;
+                align-items: flex-start;
+                justify-content: center;
+            }
+        }
+    }
 }
+
+#tel-btn-contact {
+    margin-top: 22px;
+    i {
+        padding-right: 12px;
+    }
+}
+
+@media screen and (min-width: 768px){
+    #contact-section {
+        max-width: 700px;
+        justify-content: end;
+        .container-contact {
+            width: 100%;
+            #contact-infos {
+            width: 100%;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-between;
+            #tel-btn-contact {
+                margin-top: 0;
+            }
+        }
+        }
+        
+        
+    }
+}
+@media screen and (min-width: 992px){
+    #contact-section {
+        max-width: 700px;
+        justify-content: flex-end;
+        .container-contact {
+            #contact-infos {
+                flex-direction: row;
+            }
+        }
+    }
+}
+
+@media screen and (min-width: 1200px) {
+    #contact-section {
+         max-width: 800px;
+     }
+ }
