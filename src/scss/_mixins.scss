@@ -59,6 +59,35 @@
     background-color: transparent;
     border: 1px solid var(--light);
     color: var(--light);
+    transition: all ease 0.25s 0.012s;
+    position: relative;
+    width: 100%;
+    max-width: 335px;
+    span {
+        transition: all ease 0.28s 0.013s;
+    }
+    i {
+        padding-left: 12px;
+        position: absolute;
+        transform: translateX(0);
+        opacity: 0;
+        visibility: hidden;
+        transition: all ease 0.28s 0.013s;
+    }
+    &:hover, &:focus {
+        background-color: rgba(#fff, 0.08);
+        color: var(--light);
+        border-radius: 0;
+        width: 335px;
+        span {
+            transform: translateX(-18px);
+        }
+        i {
+            transform: translateX(120px);
+            opacity: 1;
+            visibility: visible;
+        }
+    }
 }
 
 @keyframes clignoteDark {

@@ -1,4 +1,22 @@
 /* Footer styles */
 footer#main-footer {
+    margin-bottom: 100px;
+    #legals {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        a {
+            color: var(--text-color);
+            padding: 12px;
+        }
+    }
+}
 
+@media screen and (min-width: 992px) {
+   footer#main-footer #legals {
+    align-items: flex-start;
+    a {
+        padding-left: 0;
+    }
+   }
 }

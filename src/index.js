@@ -15,14 +15,12 @@ function toggleColorMode() {
     if (myBody.classList.contains('light-mode')) {
         myBody.classList.remove('light-mode');
         myBody.classList.add('dark-mode');
-        switchThemeItem.classList.add('switched')
-        switchThemeBtn.classList.add('switched')
     } else {
         myBody.classList.remove('dark-mode');
         myBody.classList.add('light-mode');
-        switchThemeItem.classList.remove('switched')
-        switchThemeBtn.classList.remove('switched')
     }
+    switchThemeItem.classList.toggle('switched')
+    switchThemeBtn.classList.toggle('switched')
 }
 
 switchThemeBtn.addEventListener('click', toggleColorMode);
@@ -125,9 +123,9 @@ toggleFavicon();
         states: {
             "default-state": {
                 gradients: [
-                    ['#66E3F6', '#5252EE'],
+                    ['#141819', '#66E3F6'],
                     ['#5252EE', '#66E3F6'],
-                    ['#66E3F6', '#5252EE']
+                    ['#5252EE', '#141819']
                 ],
                 transitionSpeed: 5500,
                 loop: true

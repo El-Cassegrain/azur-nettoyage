@@ -3,7 +3,7 @@
     position: relative;
     z-index: 10;
     margin-top: 65px;
-    margin-bottom: 120px;
+    margin-bottom: 50px;
     display: flex;
     flex-direction: column;
     a:last-child {
@@ -16,6 +16,7 @@
 
 @media screen and (min-width: 768px) {
     #contact-infos {
+        max-width: 700px;
         flex-direction: row;
         justify-content: space-between;
         max-width: 800px;
@@ -23,4 +24,10 @@
             margin-top: 0;
         }
     }
+}
+
+@media screen and (min-width: 1200px) {
+   #contact-infos {
+    max-width: 800px;
+   }
 }

@@ -14,9 +14,43 @@ body.light-mode {
     #steps-section {
         background-color: var(--light)
     }
+
     #trust-section {
         h2 {
             color: var(--dark);
+        }
+    }
+
+    #cta-steps-wrapper {
+        a {
+            animation: clignoteLight ease-in-out 0.9s infinite alternate;
+
+            &:hover,
+            &:focus {
+                color: $light;
+
+            }
+        }
+
+    }
+}
+
+body.dark-mode {
+    .btn-outline-primary {
+        animation: clignoteDark ease-in-out 0.9s infinite alternate;
+
+        &:hover,
+        &:focus {
+            color: $dark;
+        }
+    }
+
+    .btn-primary {
+        color: $dark;
+
+        &:hover,
+        &:focus {
+            background-color: darken($primary, 4%);
         }
     }
 }
@@ -30,19 +64,26 @@ body.light-mode {
         $primary: #5252EE;
         $secondary: #00C5D9;
         background-color: var(--light);
+
         .btn-primary {
             color: var(--light);
-            &:hover, &:focus {
+
+            &:hover,
+            &:focus {
                 background-color: darken($primary, 4%);
             }
         }
+
         .btn-outline-primary {
             animation: clignoteLight ease-in-out 0.9s infinite alternate;
-            &:hover, &:focus {
+
+            &:hover,
+            &:focus {
                 color: var(--light);
             }
-        
+
         }
+
         header#main-header a.main-contact-btn i {
             color: var(--light) !important;
         }

@@ -16,13 +16,16 @@ header#main-header {
         left: -68px;
         transform: translate(0);
         transition: transform ease 1s 0.12s;
+
         img {
             width: 165px;
-            
+
         }
+
         &.move-out {
             transform: translate(-110%, -110%);
         }
+
         &.move-in {
             transform: translate(0, 0);
         }
@@ -51,9 +54,11 @@ header#main-header {
                 font-size: 32px;
                 padding-top: 65px;
             }
+
             &#mail-btn {
                 display: none;
             }
+
             &#tel-btn {
                 display: block;
             }
@@ -71,6 +76,7 @@ header#main-header {
     top: 10px;
     height: 22px;
     cursor: pointer;
+
     .switch {
         position: absolute;
         border-radius: 100px;
@@ -81,10 +87,12 @@ header#main-header {
         height: 20px;
         background-color: var(--primary);
         transition: all ease-in-out 0.18s;
+
         &.switched {
             transform: translate(28px, -50%) !important;
         }
     }
+
     &.switched {
         background-color: darken($light, 8%) !important;
     }
@@ -100,23 +108,25 @@ header#main-header {
     transform: translateY(0);
 }
 
-@media screen and (min-width: 576px){
+@media screen and (min-width: 576px) {
     .theme-switch {
         right: 160px;
     }
 }
 
-@media screen and (min-width: 768px){
+@media screen and (min-width: 768px) {
     header#main-header #tel-btn {
         display: none !important;
     }
+
     header#main-header #mail-btn {
         display: block !important;
     }
 }
 
-@media screen and (min-width: 1200px){
+@media screen and (min-width: 1200px) {
     $header-height: 5rem;
+
     header#main-header {
         height: $header-height;
     }
@@ -131,5 +141,9 @@ body.light-mode {
 @media (prefers-color-scheme: light) {
     .theme-switch {
         background-color: darken($light, 4%);
+
+        &.switched {
+            background-color: darken($dark, 4%) !important;
+        }
     }
 }
