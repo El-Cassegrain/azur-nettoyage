@@ -1,5 +1,7 @@
 /* Contact styles */
 #contact-infos {
+    position: relative;
+    z-index: 10;
     margin-top: 65px;
     margin-bottom: 120px;
     display: flex;

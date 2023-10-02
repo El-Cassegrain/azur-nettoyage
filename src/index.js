@@ -250,6 +250,17 @@ toggleFavicon();
         // Indicateur de progression des étapes
         const indicator = document.getElementById('steps-cursor');
         const steps = document.querySelectorAll('.step');
+        const stepsSection = document.querySelector('#steps-section');
+
+
+        ScrollTrigger.create({
+            trigger: stepsSection,
+            start: "top top",
+            end: "bottom bottom",
+            onEnter: () => {
+                dynamicBgServices.style.display = 'none';
+            }
+        })
 
         steps.forEach((step, index) => {
             const animation = gsap.to(indicator, {
@@ -261,7 +272,7 @@ toggleFavicon();
                 trigger: step,
                 start: "75% 75%",
                 end: "50 center",
-                animation: animation
+                animation: animation,
             });
         });
 
